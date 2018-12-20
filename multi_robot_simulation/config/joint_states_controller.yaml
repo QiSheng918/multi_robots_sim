@@ -1,0 +1,9 @@
+  # Publish all joint states -----------------------------------
+robot1: 
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+robot2:
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  

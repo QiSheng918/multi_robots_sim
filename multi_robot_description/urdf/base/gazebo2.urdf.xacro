@@ -1,0 +1,61 @@
+<?xml version="1.0"?>  
+<robot xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"   
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"   
+       xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"   
+       xmlns:xacro="http://ros.org/wiki/xacro"   
+       name="mobile_robot_gazebo1">  
+
+    <xacro:macro name="mobile_robot_sim2" params="prefix">  
+      <gazebo reference="${prefix}base_link">  
+            <material>Gazebo/Blue</material>  
+
+      </gazebo>  
+
+      <gazebo reference="${prefix}right_front_wheel">  
+           <material>Gazebo/FlatBlack</material>  
+            <gravity>true</gravity> 
+           <selfCollide>true</selfCollide>
+           <kinematic>true</kinematic>
+      </gazebo>   
+
+     <gazebo reference="${prefix}right_back_wheel">  
+            <material>Gazebo/FlatBlack</material>  
+            <gravity>true</gravity> 
+           <selfCollide>true</selfCollide>
+           <kinematic>true</kinematic>
+     </gazebo>  
+ 
+      <gazebo reference="${prefix}left_front_wheel">  
+             <material>Gazebo/FlatBlack</material>  
+            <gravity>true</gravity> 
+           <selfCollide>true</selfCollide>
+           <kinematic>true</kinematic>
+      </gazebo>  
+
+        <gazebo reference="${prefix}left_back_wheel">  
+             <material>Gazebo/FlatBlack</material>  
+            <gravity>true</gravity> 
+           <selfCollide>true</selfCollide>
+           <kinematic>true</kinematic>
+        </gazebo>   
+
+        <gazebo reference="${prefix}head">  
+            <material>Gazebo/White</material>  
+        </gazebo>  
+   <gazebo>
+     
+      <plugin name="${prefix}object_controller" filename="libgazebo_ros_planar_move.so">
+        <commandTopic>/cmd_vel2</commandTopic>
+        <odometryTopic>/odom2</odometryTopic>
+        <odometryFrame>odom</odometryFrame>
+        <odometryRate>20.0</odometryRate>
+        <robotBaseFrame>base2_base_link</robotBaseFrame>
+      </plugin>
+    </gazebo>
+
+    <gazebo reference="${prefix}base_link">
+      <gravity>true</gravity>
+      <selfCollide>true</selfCollide>
+    </gazebo>
+   </xacro:macro>  
+</robot>

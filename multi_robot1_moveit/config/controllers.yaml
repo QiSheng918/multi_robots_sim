@@ -1,0 +1,13 @@
+controller_manager_ns: controller_manager
+controller_list:
+  - name: arm_follow_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+     - ur1_shoulder_pan_joint
+     - ur1_shoulder_lift_joint
+     - ur1_elbow_joint
+     - ur1_wrist_1_joint
+     - ur1_wrist_2_joint
+     - ur1_wrist_3_joint

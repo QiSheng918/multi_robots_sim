@@ -1,0 +1,14 @@
+<launch>
+ 
+   <arg name="model" default="$(find ur_base_description)/urdf/ur/ur10_joint_limited_robot.urdf.xacro"/>
+
+   <include file="$(find ur_base_simulation)/launch/controllers/ur_base_position_controller.launch"/>
+   <!-- <include file="$(find ur_base_simulation)/launch/controllers/ur_base_trajectory_controller.launch"/> -->
+
+  <!-- <include file="$(find ur10_base_moveit)/launch/ur10_base_moveit_planning_executing.launch"/> -->
+   <include file="$(find ur_base_simulation)/launch/controllers/ur_base_joint_states_controller.launch"/>
+ <include file="$(find ur_base_simulation)/launch/ur_base_gazebo.launch">
+      <arg name="model"  value="$(arg model)"/>
+   </include>
+ 
+</launch>

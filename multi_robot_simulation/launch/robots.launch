@@ -1,0 +1,15 @@
+<launch>
+<group ns="robot1">
+  <include file="$(find multi_robot_simulation)/launch/robot.launch">
+  <arg name="robot_name" value="robot1"/>
+  <arg name="init_pose" value="-x -2 -y 0 -z 0"/>
+  </include>
+</group>
+
+<group ns="robot2">
+    <include file="$(find multi_robot_simulation)/launch/robot.launch">
+    <arg name="robot_name" value="robot2"/>
+    <arg name="init_pose" value="-x 2 -y 0 -z 0"/>
+</include>
+</group>
+</launch>

@@ -1,0 +1,18 @@
+<launch>
+   <!--<arg name="model" default="$(find multi_robot_simulation)/robots/ur10_base.urdf.xacro"/>-->
+
+   
+   <include file="$(find multi_robot_simulation)/launch/controllers/joint_states_controller.launch"/>
+   <!-- <include file="$(find multi_robot_simulation)/launch/controllers/ur_base_trajectory_controller.launch"/> -->
+
+    <include file="$(find multi_robot_simulation)/launch/controllers/position_group_controller.launch"/>
+    <!-- <include file="$(find multi_robot1_moveit)/launch/multi_robot1_moveit_planning_executing.launch"/> -->
+   <!--include file="$(find multi_robot2_moveit)/launch/multi_robot2_moveit_planning_executing.launch"/>-->
+    <!-- <include file="$(find multi_robot_simulation)/launch/controllers/trajectory_controller.launch"/> -->
+
+     <!--<include file="$(find multi_robot2_moveit)/launch/move_group.launch"/>-->
+      <!--<include file="$(find multi_robot2_moveit)/launch/ur10_base_moveit_controller_manager.launch.xml" />-->
+     <!--<include file="$(find multi_robot1_moveit)/launch/move_group.launch"/>-->
+   <include file="$(find multi_robot_simulation)/launch/multi_robot_gazebo.launch"/>
+   <include file="$(find multi_robot_simulation)/launch/robots.launch"/>
+</launch>

@@ -1,0 +1,8 @@
+<launch>
+    <rosparam file="$(find multi_robot_simulation)/config/position_group_controller1.yaml" command="load"/>
+    <!-- <rosparam file="$(find multi_robot_simulation)/config/position_group_controller2.yaml" command="load"/> -->
+
+    <node name="arm_velocity_group_controller" pkg="controller_manager"  type="spawner"   respawn="false"
+output="screen"  args="robot1/position_group_controller
+                       robot2/position_group_controller"/> 
+</launch>

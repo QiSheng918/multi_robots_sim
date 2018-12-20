@@ -1,0 +1,23 @@
+arm_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - ur1_shoulder_pan_joint
+    - ur1_shoulder_lift_joint
+    - ur1_elbow_joint
+    - ur1_wrist_1_joint
+    - ur1_wrist_2_joint
+    - ur1_wrist_3_joint
+  gains:
+    ur1_shoulder_pan_joint: {p: 50.0, i: 0.0, d: 0.0, i_clamp: 0.0}
+    ur1_shoulder_lift_joint: {p: 50.0, i: 0.0, d: 0.0, i_clamp: 0.0}
+    ur1_elbow_joint: {p: 50.0, i: 0.0, d: 0.0, i_clamp: 0.0}
+    ur1_wrist_1_joint: {p: 50.0, i: 0.0, d: 0.0, i_clamp: 0.0}
+    ur1_wrist_2_joint: {p: 50.0, i: 0.0, d: 0.0, i_clamp: 0.0}
+    ur1_wrist_3_joint: {p: 50.0, i: 0.0, d: 0.0, i_clamp: 0.0}
+
+
+  
+
+
+
+

@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/home/sheng1996/qt_test/devel/include",
+                "/home/sheng1996/catkin_ws/devel/include",
+                "/opt/ros/kinetic/include",
+                "/home/sheng1996/qt_test/src/franka_move/include",
+                "/home/sheng1996/qt_test/src/multi_robot/multi_robot_description/include",
+                "/home/sheng1996/qt_test/src/multi_robot/multi_robot_simulation/include",
+                "/home/sheng1996/qt_test/src/my_effort_controllers/include",
+                "/home/sheng1996/qt_test/src/multi_robot/my_robot_state_publisher/include",
+                "/home/sheng1996/qt_test/src/ros_qt_gui/include",
+                "/usr/include"
+            ],
+            "name": "Linux",
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}

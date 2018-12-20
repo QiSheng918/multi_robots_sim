@@ -1,0 +1,222 @@
+<?xml version="1.0"?>  
+    <robot name="mobile_robot_body" xmlns:xacro="http://ros.org/wiki/xacro">  
+      <xacro:property name="M_PI" value="3.14159"/>  
+
+<xacro:macro name="transmission_acro" params="joint_name">
+<transmission name="${joint_name}_tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="${joint_name}">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="${joint_name}_motor1">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+</transmission>
+</xacro:macro>
+
+      <xacro:property name="base_x" value="0.33" />  
+      <xacro:property name="base_y" value="0.33" />  
+
+      <xacro:macro name="base" params="prefix">  
+
+        <link name="${prefix}base_link">  
+        <inertial>  
+          <origin xyz="0 0 -0.1"/>  
+          <mass value="150.0" />  
+          <inertia ixx="10.0" ixy="0.0" ixz="0.0" iyy="10.0" iyz="0.0" izz="10.0"/>  
+        </inertial>  
+        <visual>  
+          <geometry>  
+            <box size="0.8 0.6 0.36"/>  
+          </geometry>  
+          <origin rpy="0 0 0" xyz="0 0 0.2"/>  
+          <material name="blue">  
+          <color rgba="0 0 .8 1"/>  
+          </material>  
+       </visual>  
+       <collision>  
+          <origin rpy="0 0 0" xyz="0 0 0.2"/>  
+          <geometry>  
+             <box size="0.8 0.6 0.36"/>   
+          </geometry>  
+        </collision>  
+      </link>  
+
+    
+     <link name="${prefix}left_front_wheel">  
+        <inertial>  
+          <origin  xyz="0.08 0.08 0.025"/>  
+          <mass value="1" />  
+           <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>  
+        </inertial>  
+        <visual>  
+          <geometry>  
+            <cylinder length="0.05" radius="0.1"/> 
+          </geometry>  
+          <material name="black">  
+            <color rgba="0 0 0 1"/>  
+          </material>  
+        </visual>  
+        <collision>  
+          <origin rpy="0 1.57075 1.57075" xyz="0 0 0.1"/>  
+          <geometry>  
+             <cylinder length="0.05" radius="0.1"/>  
+          </geometry>  
+        </collision>  
+      </link>  
+
+
+      <joint name="${prefix}left_front_wheel_joint" type="fixed">  
+        <axis xyz="0 0 1"/>  
+        <parent link="${prefix}base_link"/>  
+        <child link="${prefix}left_front_wheel"/>  
+        <origin rpy="0 1.57075 1.57075" xyz="0.3 0.325 0.1"/>  
+        <!-- <limit effort="100" velocity="100"/>  
+        <joint_properties damping="0.0" friction="0.0"/>   -->
+      </joint>  
+
+     
+      <link name="${prefix}right_front_wheel">  
+        <inertial>  
+          <origin xyz="0.08 -0.08 0.025"/>  
+          <mass value="1" />  
+           <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>  
+        </inertial>  
+        <visual>  
+          <geometry>  
+            <cylinder length="0.05" radius="0.1"/>   
+          </geometry>  
+          <material name="black">  
+            <color rgba="0 0 0 1"/>  
+          </material>  
+        </visual>  
+        <collision>  
+          <origin rpy="0 1.57075 1.57075" xyz="0 0 0.1"/>  
+          <geometry>  
+             <cylinder length="0.05" radius="0.1"/>   
+          </geometry>  
+        </collision>  
+      </link>  
+
+     
+
+      <joint name="${prefix}right_front_wheel_joint" type="fixed">  
+        <axis xyz="0 0 1"/>  
+        <parent link="${prefix}base_link"/>  
+        <child link="${prefix}right_front_wheel"/>  
+        <origin rpy="0 1.57075 1.57075" xyz="0.3 -0.325 0.1"/>  
+        <!-- <limit effort="100" velocity="100"/>  
+        <joint_properties damping="0.0" friction="0.0"/>   -->
+     </joint>  
+
+     
+
+     <link name="${prefix}left_back_wheel">  
+        <inertial>  
+          <origin xyz="-0.08 0.08 0.025"/>  
+          <mass value="1" />  
+           <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>  
+        </inertial>  
+        <visual>  
+          <geometry>  
+            <cylinder length="0.05" radius="0.1"/> 
+          </geometry>  
+          <material name="black">  
+            <color rgba="0 0 0 1"/>  
+          </material>  
+        </visual>  
+        <collision>  
+           <origin rpy="0 1.57075 1.57075" xyz="0 0 0.1"/>  
+          <geometry>  
+             <cylinder length="0.05" radius="0.1"/>   
+          </geometry>  
+        </collision>  
+      </link>  
+
+     
+
+      <joint name="${prefix}left_back_wheel_joint" type="fixed">  
+        <axis xyz="0 0 1"/>  
+        <parent link="${prefix}base_link"/>  
+        <child link="${prefix}left_back_wheel"/>  
+        <origin rpy="0 1.57075 1.57075" xyz="-0.3 0.325 0.1"/>  
+        <!-- <limit effort="100" velocity="100"/>  
+        <joint_properties damping="0.0" friction="0.0"/>   -->
+      </joint>  
+
+     
+
+      <link name="${prefix}right_back_wheel">  
+        <inertial>  
+           <origin xyz="-0.08 -0.08 0.025"/>  
+           <mass value="1" />  
+           <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>  
+        </inertial>  
+        <visual>  
+          <geometry>  
+            <cylinder length="0.05" radius="0.1"/> 
+          </geometry>  
+          <material name="black">  
+            <color rgba="0 0 0 1"/>  
+          </material>  
+       </visual>  
+       <collision>  
+          <origin rpy="0 1.57075 1.57075" xyz="0 0 0.1"/>  
+          <geometry>  
+             <cylinder length="0.05" radius="0.1"/>   
+          </geometry>  
+        </collision>  
+      </link>  
+
+     
+
+      <joint name="${prefix}right_back_wheel_joint" type="fixed">  
+        <axis xyz="0 0 1"/>  
+        <parent link="${prefix}base_link"/>  
+        <child link="${prefix}right_back_wheel"/>  
+        <origin rpy="0 1.57075 1.57075" xyz="-0.3 -0.325 0.1"/>  
+        <!-- <limit effort="100" velocity="100"/>  
+        <joint_properties damping="0.0" friction="0.0"/>   -->
+      </joint>  
+
+     
+
+      <link name="${prefix}head">  
+        <inertial>  
+          <origin xyz="0.08 0 0.08"/>  
+          <mass value="0.1" />  
+          <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>  
+        </inertial>  
+        <visual>  
+          <geometry>  
+            <box size=".02 .03 .04"/>  
+          </geometry>  
+          <material name="white">  
+            <color rgba="1 1 1 1"/>  
+          </material>  
+         </visual>  
+         <collision>  
+          <origin xyz="0.08 0 0.08"/>  
+          <geometry>  
+             <cylinder length=".02" radius="0.025"/>  
+          </geometry>  
+        </collision>  
+      </link>  
+
+     
+
+      <joint name="${prefix}tobox" type="fixed">  
+        <parent link="${prefix}base_link"/>  
+        <child link="${prefix}head"/>  
+        <origin xyz="0.1 0 0.38"/>  
+      </joint>  
+      
+  <!-- <xacro:transmission_acro joint_name="left_back_wheel_joint"/> 
+  <xacro:transmission_acro joint_name="right_back_wheel_joint"/> 
+  <xacro:transmission_acro joint_name="left_front_wheel_joint"/> 
+  <xacro:transmission_acro joint_name="right_front_wheel_joint"/>  -->
+    <!-- <xacro:mobile_robot_sim prefix="${prefix}"/>   -->
+      </xacro:macro>  
+
+</robot>

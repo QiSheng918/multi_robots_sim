@@ -1,0 +1,28 @@
+<?xml version="1.0"?>  
+<robot name="ur10_base"        
+        xmlns:gazebo="http://playerstage.sourceforge.net/gazebo/xmlschema/#gz"  
+        xmlns:model="http://playerstage.sourceforge.net/gazebo/xmlschema/#model"  
+        xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"  
+        xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"  
+        xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom"  
+        xmlns:joint="http://playerstage.sourceforge.net/gazebo/xmlschema/#joint"  
+        xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"  
+        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"  
+        xmlns:rendering="http://playerstage.sourceforge.net/gazebo/xmlschema/#rendering"  
+        xmlns:renderable="http://playerstage.sourceforge.net/gazebo/xmlschema/#renderable"  
+        xmlns:physics="http://playerstage.sourceforge.net/gazebo/xmlschema/#physics"  
+        xmlns:xacro="http://ros.org/wiki/xacro">  
+     
+    <xacro:include filename="$(find multi_robot_description)/urdf/base/base.urdf.xacro"/>  
+    <xacro:include filename="$(find multi_robot_description)/urdf/ur/common.gazebo.xacro" />
+
+    <xacro:include filename="$(find multi_robot_description)/urdf/ur/ur10.urdf.xacro"/>   
+    <xacro:base prefix=""/>  
+    <xacro:mobile_robot_sim/>  
+    <xacro:ur10_robot prefix="" joint_limited="true"/>
+  <joint name="world_joint" type="fixed">
+     <parent link="head" />
+     <child link = "ur_base_link" />
+     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 3.1415926" />
+  </joint>
+</robot>

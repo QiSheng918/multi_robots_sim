@@ -1,0 +1,21 @@
+position_group_controller2:
+  type: position_controllers/JointGroupPositionController
+  joints: 
+    - ur2_shoulder_pan_joint
+    - ur2_shoulder_lift_joint
+    - ur2_elbow_joint
+    - ur2_wrist_1_joint
+    - ur2_wrist_2_joint
+    - ur2_wrist_3_joint
+  ur2_shoulder_pan_joint: 
+    pid: {p: 2500.0, i: 5.0, d: 400, i_clamp: 0.0} 
+  ur2_shoulder_lift_joint: 
+    pid: {p: 10000.0, i: 25, d: 500.0, i_clamp: 0.0}
+  ur2_elbow_joint: 
+    pid: {p: 2500.0, i: 10, d: 250.0, i_clamp: 0.0}
+  ur2_wrist_1_joint: 
+    pid: {p: 250.0, i: 0.1, d: 2.5, i_clamp: 0.0}
+  ur2_wrist_2_joint:
+    pid: {p: 125.0, i: 1.0, d: 1, i_clamp: 0.0}
+  ur2_wrist_3_joint: 
+    pid: {p: 250.0, i: 1.0, d: 0.1, i_clamp: 0.0}

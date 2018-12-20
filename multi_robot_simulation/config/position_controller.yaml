@@ -1,0 +1,25 @@
+  # 250,1,20
+  joint1_position_controller:
+    type: velocity_controllers/JointPositionController
+    joint: shoulder_pan_joint
+    pid: {p: 1000, i: 1, d: 1}
+  joint2_position_controller:
+    type: velocity_controllers/JointPositionController
+    joint: shoulder_lift_joint
+    pid: {p: 1000.0, i: 0, d: 0}
+  joint3_position_controller:
+    type: velocity_controllers/JointPositionController
+    joint: elbow_joint
+    pid: {p: -100.0, i: 0, d: 0}
+  joint4_position_controller:
+    type: velocity_controllers/JointPositionController
+    joint: wrist_1_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  joint5_position_controller:
+    type: velocity_controllers/JointPositionController
+    joint: wrist_2_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  joint6_position_controller:
+    type: velocity_controllers/JointPositionController
+    joint: wrist_3_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}

@@ -1,0 +1,64 @@
+<?xml version="1.0"?>  
+<robot name="ur10_base"        
+        xmlns:gazebo="http://playerstage.sourceforge.net/gazebo/xmlschema/#gz"  
+        xmlns:model="http://playerstage.sourceforge.net/gazebo/xmlschema/#model"  
+        xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"  
+        xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"  
+        xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom"  
+        xmlns:joint="http://playerstage.sourceforge.net/gazebo/xmlschema/#joint"  
+        xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"  
+        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"  
+        xmlns:rendering="http://playerstage.sourceforge.net/gazebo/xmlschema/#rendering"  
+        xmlns:renderable="http://playerstage.sourceforge.net/gazebo/xmlschema/#renderable"  
+        xmlns:physics="http://playerstage.sourceforge.net/gazebo/xmlschema/#physics"  
+        xmlns:xacro="http://ros.org/wiki/xacro">  
+     
+    <xacro:include filename="$(find ur_base_description)/urdf/base/base.urdf.xacro"/>  
+    <xacro:include filename="$(find ur_base_description)/urdf/ur/common.gazebo.xacro" />
+    <xacro:include filename="$(find ur_base_description)/urdf/base/gazebo1.urdf.xacro"/>
+  <xacro:include filename="$(find ur_base_description)/urdf/base/gazebo2.urdf.xacro"/>
+
+
+    <xacro:include filename="$(find ur_base_description)/urdf/ur/ur10.urdf.xacro"/>   
+    <xacro:base prefix="base1_"/>  
+ 
+    <xacro:ur10_robot prefix="ur1_" joint_limited="true"/>
+
+    <xacro:base prefix="base2_"/>
+
+<xacro:ur10_robot prefix="ur2_" joint_limited="true"/>
+
+<xacro:mobile_robot_sim1 prefix="base1_"/>
+<xacro:mobile_robot_sim2 prefix="base2_"/>
+
+  
+
+  <joint name="base_to_ur_joint1" type="fixed">
+     <parent link="base1_head" />
+     <child link = "ur1_ur_base_link" />
+     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 3.1415926" />
+  </joint>
+
+  <joint name="base_to_ur_joint2" type="fixed">
+  <parent link="base2_head" />
+  <child link = "ur2_ur_base_link" />
+  <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 3.1415926" />
+</joint>
+
+<link name="world"/>
+
+<joint name="world_joint1" type="planar">
+  <parent link="world" />
+  <child link = "base1_base_link" />
+<origin xyz="2 0.0 0.0" rpy="0.0 0.0 0" />
+
+</joint>
+
+<joint name="world_joint2" type="planar">
+  <parent link="world"/>
+  <child link = "base2_base_link" />
+<origin xyz="-2 0.0 0.0" rpy="0.0 0.0 0" /> 
+
+</joint>
+      
+</robot>
